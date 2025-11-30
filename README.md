@@ -1,4 +1,5 @@
-# Web-Dev-3rd-assignment
+WEB DEV ASSIGNMENT III
+PROJECT BY KANISHKA SAINI 
 /* =========================================================
    ROOT VARIABLES (modern color system)
 ========================================================= */
