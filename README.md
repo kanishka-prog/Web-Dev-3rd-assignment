@@ -1,268 +1,214 @@
 WEB DEV ASSIGNMENT III
-PROJECT BY KANISHKA SAINI 
-/* =========================================================
-   ROOT VARIABLES (modern color system)
-========================================================= */
-:root {
-  --primary: #0db0e6;
-  --secondary: #0a7fd9;
-  --text: #333;
-  --bg: #f4f4f9;
-  --white: #ffffff;
-  --radius: 10px;
-  --transition: 0.3s ease;
-  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  --accent-green: rgb(3, 98, 43);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Portfolio</title>
+  <style>
+    :root {
+      --primary: #0db0e6;
+      --dark: #111;
+      --light: #f5f5f5;
+      --font-lg: 2rem;
+      --font-md: 1.2rem;
+      --font-sm: 1rem;
+    }
 
-/* =========================================================
-   GLOBAL RESET + BASE STYLES
-========================================================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+    }
 
-body {
-  font-family: "Poppins", Arial, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  scroll-behavior: smooth;
-}
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
 
-/* =========================================================
-   HEADER
-========================================================= */
-header {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--white);
-  padding: 30px 0;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--dark);
+      font-size: var(--font-md);
+      transition: color .3s ease;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-  animation: fadeDown 1s ease-in-out;
-}
+    nav a:hover {
+      color: var(--primary);
+    }
 
-/* Animation */
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10vh 2rem;
+      background: linear-gradient(to bottom right, #e3f7ff, #ffffff);
+      animation: fadeIn 1.5s ease;
+    }
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
-nav {
-  margin-top: 10px;
-}
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
 
-nav ul {
-  list-style: none;
-}
+    .hero p {
+      font-size: var(--font-md);
+      max-width: 500px;
+    }
 
-nav li {
-  display: inline-block;
-  margin: 0 15px;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-nav a {
-  color: var(--accent-green);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  position: relative;
-  transition: var(--transition);
-}
+    /* ABOUT GRID SECTION */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      align-items: center;
+    }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background: var(--secondary);
-  transition: var(--transition);
-}
+    .about img {
+      width: 100%;
+      border-radius: 10px;
+    }
 
-nav a:hover::after {
-  width: 100%;
-}
+    .about-text h2 {
+      font-size: var(--font-lg);
+      margin-bottom: 1rem;
+    }
 
-/* =========================================================
-   MAIN CONTAINER
-========================================================= */
-main {
-  max-width: 950px;
-  margin: 40px auto;
-  padding: 25px;
-  background-color: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  animation: fadeIn 0.8s ease;
-}
+    .about-text p {
+      font-size: var(--font-sm);
+      line-height: 1.6;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.97); }
-  to   { opacity: 1; transform: scale(1); }
-}
+    /* PROJECTS - FLEXBOX */
+    .projects {
+      padding: 4rem 2rem;
+      background: white;
+    }
 
-/* =========================================================
-   SECTION HEADINGS
-========================================================= */
-section h2 {
-  border-left: 5px solid var(--primary);
-  padding-left: 10px;
-  margin-top: 40px;
-  font-size: 1.8rem;
-}
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
 
-/* =========================================================
-   ABOUT SECTION IMAGE
-========================================================= */
-#about img {
-  display: block;
-  margin: 20px auto;
-  border-radius: 50%;
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
+    .project {
+      background: var(--light);
+      padding: 1.5rem;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform .3s ease;
+    }
 
-#about img:hover {
-  transform: scale(1.1);
-}
+    .project:hover {
+      transform: translateY(-10px);
+    }
 
-/* =========================================================
-   PROJECT CARDS
-========================================================= */
-article {
-  background-color: #fafafa;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
+    .project h3 {
+      margin-top: 0;
+    }
 
-article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-}
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
 
-/* =========================================================
-   SKILLS TABLE
-========================================================= */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
+    .contact button {
+      padding: .8rem 2rem;
+      font-size: var(--font-md);
+      background: var(--primary);
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background .3s ease, transform .3s ease;
+    }
 
-table th,
-table td {
-  border: 1px solid #ccc;
-  padding: 12px;
-  text-align: left;
-}
+    .contact button:hover {
+      background: #098ab8;
+      transform: scale(1.05);
+    }
 
-table th {
-  background-color: var(--secondary);
-  color: var(--white);
-}
+    /* MEDIA QUERIES */
+    @media (max-width: 768px) {
+      .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
 
-table tr:hover {
-  background: rgba(13, 176, 230, 0.1);
-}
+  <nav>
+    <div class="logo"><strong>Portfolio</strong></div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-/* =========================================================
-   CONTACT FORM
-========================================================= */
-form {
-  background-color: #fafafa;
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
+  <section class="hero">
+    <h1>Hello, I'm Kanishka</h1>
+    <p>Aspiring developer creating interactive and responsive web designs.</p>
+  </section>
 
-label {
-  font-weight: bold;
-}
+  <section id="about" class="about">
+    <img src="https://via.placeholder.com/400" alt="Profile" />
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I specialize in front-end development and love building responsive layouts
+        using modern CSS techniques like Flexbox, Grid, and animations.
+      </p>
+    </div>
+  </section>
 
-input,
-textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0 20px;
-  border: 2px solid #ddd;
-  border-radius: var(--radius);
-  transition: var(--transition);
-}
+  <section id="projects" class="projects">
+    <h2 style="text-align:center;font-size:var(--font-lg)">Projects</h2>
+    <div class="project-list">
+      <div class="project">
+        <h3>Project One</h3>
+        <p>A sample project showcasing responsive UI design.</p>
+      </div>
+      <div class="project">
+        <h3>Project Two</h3>
+        <p>Interactive animations using CSS transitions and keyframes.</p>
+      </div>
+      <div class="project">
+        <h3>Project Three</h3>
+        <p>A Flexbox and Grid powered layout demonstration.</p>
+      </div>
+    </div>
+  </section>
 
-input:focus,
-textarea:focus {
-  border-color: var(--primary);
-  outline: none;
-  box-shadow: 0 0 10px rgba(13, 176, 230, 0.3);
-}
+  <section id="contact" class="contact">
+    <h2 style="font-size:var(--font-lg)">Get in Touch</h2>
+    <button>Contact Me</button>
+  </section>
 
-input[type="submit"] {
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1em;
-  padding: 12px;
-  border-radius: var(--radius);
-  transition: var(--transition);
-}
-
-input[type="submit"]:hover {
-  background-color: var(--secondary);
-  transform: translateY(-2px);
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-footer {
-  text-align: center;
-  background-color: var(--secondary);
-  color: white;
-  padding: 15px 0;
-  margin-top: 40px;
-  box-shadow: var(--shadow);
-}
-
-/* =========================================================
-   RESPONSIVE DESIGN
-========================================================= */
-@media (max-width: 768px) {
-  nav li {
-    display: block;
-    margin: 10px 0;
-  }
-
-  header h1 {
-    font-size: 2rem;
-  }
-
-  main {
-    margin: 20px;
-    padding: 20px;
-  }
-
-  table th,
-  table td {
-    font-size: 0.9rem;
-  }
-}
+</body>
+</html>
 
