@@ -4,8 +4,9 @@ WEB DEV ASSIGNMENT III
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Portfolio</title>
+  <title>Responsive Portfolio By Kanishka Saini</title> 
   <style>
+    
     :root {
       --primary: #0db0e6;
       --dark: #111;
@@ -14,14 +15,14 @@ WEB DEV ASSIGNMENT III
       --font-md: 1.2rem;
       --font-sm: 1rem;
     }
-
+    
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: var(--light);
       color: var(--dark);
     }
-
+    
     /* NAVBAR */
     nav {
       display: flex;
@@ -34,7 +35,7 @@ WEB DEV ASSIGNMENT III
       z-index: 100;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
+    
     nav a {
       margin-left: 1.5rem;
       text-decoration: none;
@@ -154,7 +155,8 @@ WEB DEV ASSIGNMENT III
     @media (max-width: 768px) {
       .about {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: 
+      center;
       }
     }
   </style>
@@ -162,6 +164,7 @@ WEB DEV ASSIGNMENT III
 <body>
 
   <nav>
+    
     <div class="logo"><strong>Portfolio</strong></div>
     <div>
       <a href="#about">About</a>
@@ -171,7 +174,8 @@ WEB DEV ASSIGNMENT III
   </nav>
 
   <section class="hero">
-    <h1>Hello, I'm Kanishka</h1>
+    
+  <h1>Hello, I'm Kanishka</h1>
     <p>Aspiring developer creating interactive and responsive web designs.</p>
   </section>
 
@@ -211,4 +215,3 @@ WEB DEV ASSIGNMENT III
 
 </body>
 </html>
-
